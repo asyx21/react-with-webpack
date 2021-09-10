@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "../styles/RenderForm.css";
+import React, { useState } from 'react';
+import '../styles/RenderForm.css';
 
 const RenderForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [hasValue, setHasValue] = useState(false);
 
   const handleNameChange = (event) => {
@@ -24,7 +24,7 @@ const RenderForm = () => {
   };
 
   return (
-    <>
+    <div>
       <label>
         <h3>Input Form</h3>
       </label>
@@ -59,9 +59,9 @@ const RenderForm = () => {
           <p>Email: {email}</p>
         </div>
       ) : (
-        ""
+        ''
       )}
-    </>
+    </div>
   );
 };
 
