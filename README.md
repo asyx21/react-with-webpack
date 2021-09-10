@@ -1,5 +1,10 @@
 # react-with-webpack
 
-This repo contains sample code of how to setup a react app with Webpack and Babel.
+This repo contains sample code of how to setup a react app on docker with Webpack and Babel.
 
-Find the whole tutorial over here: https://anubhav7x.hashnode.dev/setup-a-react-app-using-webpack-and-babel
+Forked from: [https://github.com/deadwing7x/react-with-webpack](https://github.com/deadwing7x/react-with-webpack)
+
+## Use in docker
+
+- Build: `docker build -f Dockerfile.dev -t docker-react-webpack .`  
+- Run: `docker run -p 80:8080 docker-react-webpack`  

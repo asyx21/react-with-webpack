@@ -1,0 +1,20 @@
+FROM node:erbium-alpine
+
+EXPOSE 8080
+
+RUN mkdir /webapp
+WORKDIR /webapp
+
+COPY ./package.json ./package.json
+RUN apk add git
+RUN apk update \
+    && apk add --no-cache --virtual .build-deps make gcc g++ python \
+    && npm install \
+    && apk del .build-deps \
+    && apk add bash
+
+COPY ./src ./src
+COPY ./build ./build
+COPY ./webpack.config.js .
+
+CMD ./node_modules/.bin/webpack serve --config webpack.config.js
