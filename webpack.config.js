@@ -11,13 +11,16 @@ module.exports = {
     extensions: ['.jsx', '.js', '.json'],
   },
   devServer: {
-    disableHostCheck: true,
+    allowedHosts: 'all',
     host: '0.0.0.0',
     port: 8080,
-    publicPath: '/',
+    devMiddleware: {
+      publicPath: '/',
+    },
     hot: true,
-    inline: true,
-    contentBase: path.join(__dirname, 'src'),
+    static: {
+      directory: path.join(__dirname, 'src'),
+    },
   },
   module: {
     rules: [
@@ -44,6 +47,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
+      favicon: './assets/favicon.ico',
     }),
   ],
 };

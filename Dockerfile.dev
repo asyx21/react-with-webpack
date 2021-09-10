@@ -14,6 +14,7 @@ RUN apk update \
     && apk add bash
 
 COPY ./src ./src
+COPY ./assets ./assets
 COPY ./build ./build
 COPY ./webpack.config.js .
 
