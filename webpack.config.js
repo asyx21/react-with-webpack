@@ -3,23 +3,31 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'eval-cheap-module-source-map',
-  entry: path.join(__dirname, 'src', 'index.jsx'),
-  output: { path: path.join(__dirname, 'build'), filename: 'index.bundle.js' },
+  entry: path.resolve(__dirname, './src/index.jsx'),
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: 'index.bundle.js',
+    publicPath: '/',
+  },
   mode: process.env.NODE_ENV || 'development',
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     extensions: ['.jsx', '.js', '.json'],
   },
+  watchOptions: {
+    ignored: ['node_modules/**', '/webapp/node_modules/**'],
+  },
   devServer: {
-    allowedHosts: 'all',
+    allowedHosts: 'localhost',
     host: '0.0.0.0',
     port: 8080,
-    devMiddleware: {
-      publicPath: '/',
+    client: {
+      webSocketURL: 'auto://0.0.0.0:0/ws',
     },
+    webSocketServer: 'ws',
     hot: true,
     static: {
-      directory: path.join(__dirname, 'src'),
+      directory: path.join(__dirname, './src'),
     },
   },
   module: {
