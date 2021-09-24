@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'; //eslint-disable-line
+import ReactDOM from 'react-dom'; //eslint-disable-line
+
 import App from './App';
-import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <App />
-  </React.StrictMode>,
+  </>,
   document.getElementById('root'),
 );

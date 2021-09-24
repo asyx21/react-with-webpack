@@ -1,0 +1,16 @@
+body {
+  color: blue;
+}
+
+.input-form {
+  margin: 1rem;
+  width: 80vw;
+  max-width: 20rem;
+}
+
+.input-fields {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  width: 75vw;
+  max-width: 18rem;
+}
